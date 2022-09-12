@@ -9,6 +9,7 @@ Vector2 SeparationRule::computeForce(const std::vector<Boid*>& neighborhood, Boi
     float desiredDistance = desiredMinimalDistance;
 
     // todo: implement a force that if neighbor(s) enter the radius, moves the boid away from it/them
+
     if (!neighborhood.empty()) {
         Vector2 position = boid->transform.position;
         int countCloseFlockmates = 0;
