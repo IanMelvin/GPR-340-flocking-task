@@ -13,5 +13,7 @@ Vector2 CohesionRule::computeForce(const std::vector<Boid*>& neighborhood, Boid*
     }
     cohesionForce /= neighborhood.size();
 
+    boid->applyForce(cohesionForce);
+
     return cohesionForce;
 }
