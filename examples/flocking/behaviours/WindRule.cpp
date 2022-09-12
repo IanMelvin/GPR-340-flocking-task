@@ -3,10 +3,21 @@
 #include "../gameobjects/Boid.h"
 #include "../gameobjects/World.h"
 
+#define PI 3.14159265
+
 Vector2 WindRule::computeForce(const std::vector<Boid*>& neighborhood, Boid* boid) {
     // todo: add a wind force here
     // hint: use the windAngle variable
-    return Vector2::zero();
+    Vector2 windForce;
+
+    float windRadians = windAngle * (PI / 180);
+
+    Vector2 windPosition = Vector2(cos(windRadians), sin(windRadians));
+
+    windForce = windPosition - boid->getPosition();
+    windForce = Vector2::normalized(windForce);
+
+    return windForce;
 }
 
 bool WindRule::drawImguiRuleExtra() {
