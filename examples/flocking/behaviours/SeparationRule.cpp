@@ -18,7 +18,6 @@ Vector2 SeparationRule::computeForce(const std::vector<Boid*>& neighborhood, Boi
         for (Boid* neighbor : neighborhood)
         {
             centerOfMass += neighbor->getPosition();
-            //separatingForce += neighbor->getPosition() - boid->getPosition();
         }
         centerOfMass /= neighborhood.size();
 

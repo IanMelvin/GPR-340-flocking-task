@@ -14,10 +14,10 @@ Vector2 WindRule::computeForce(const std::vector<Boid*>& neighborhood, Boid* boi
 
     Vector2 windPosition = Vector2(cos(windRadians), sin(windRadians));
 
-    windForce = windPosition - boid->getPosition();
-    windForce = Vector2::normalized(windForce);
+    //windForce = windPosition - boid->getPosition();
+    windForce = Vector2::normalized(windPosition);
 
-    return windForce;
+    return windPosition;
 }
 
 bool WindRule::drawImguiRuleExtra() {
