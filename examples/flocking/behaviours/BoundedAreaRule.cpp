@@ -6,28 +6,28 @@ Vector2 BoundedAreaRule::computeForce(const std::vector<Boid*>& neighborhood, Bo
     //Return a force proportional to the proximity of the boids with the bounds, and opposed to it
     Vector2 force = Vector2::zero(); //zero
 
-    desiredDistance = 10;
+    //desiredDistance = 10;
     // todo: add here your code code here do make the boid follow the bounded box rule
     // hint: use this->world->engine->window->size() and desiredDistance
     Vector2 worldSize = this->world->engine->window->size();
     if (boid->getPosition().x < desiredDistance)
     {
-        force.x = 10;
+        force.x = desiredDistance * boid->getPosition().x;
     }
 
     if (boid->getPosition().x > worldSize.x - desiredDistance)
     {
-        force.x = -10;
+        force.x = -desiredDistance * boid->getPosition().x;
     }
 
     if (boid->getPosition().y < desiredDistance)
     {
-        force.y = 10;
+        force.y = desiredDistance * boid->getPosition().y;
     }
 
     if (boid->getPosition().y > worldSize.y - desiredDistance)
     {
-        force.y = -10;
+        force.y = -desiredDistance * boid->getPosition().y;
     }
 
     return force;

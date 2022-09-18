@@ -8,16 +8,11 @@
 Vector2 WindRule::computeForce(const std::vector<Boid*>& neighborhood, Boid* boid) {
     // todo: add a wind force here
     // hint: use the windAngle variable
-    Vector2 windForce;
+    Vector2 windPosition = Vector2::right();
 
-    float windRadians = windAngle * (PI / 180);
+    windPosition = windPosition.Rotate(windAngle*(180/PI));
 
-    Vector2 windPosition = Vector2(cos(windRadians), sin(windRadians));
-
-    //windForce = windPosition - boid->getPosition();
-    windForce = Vector2::normalized(windPosition);
-
-    return windPosition;
+    return Vector2::normalized(windPosition);
 }
 
 bool WindRule::drawImguiRuleExtra() {
